@@ -10,12 +10,12 @@ class BookList extends Component {
       }
 
 componentDidMount() {
-    this.getBookById(this.props.bookId)
+    this.getBookById(this.props.bookId);
 }
 
 getBookById(bookId) {
 BooksAPI.get(bookId).then((book) => {
-const img = book.imageLinks.smallThumbnail ? book.imageLinks.smallThumbnail : 'https://via.placeholder.com/150';
+const img = book?.imageLinks?.smallThumbnail ?? 'https://via.placeholder.com/150';
 const authors = book.authors ? book.authors.join(', ') : '';
 
     this.setState(() => ({
